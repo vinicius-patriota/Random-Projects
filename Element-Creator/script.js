@@ -33,7 +33,7 @@ const verifyIndexElement = (indexElementInput) => {
 // -- -- --
 
 // -- list-create-element --
-const listTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'ol', 'ul', 'li', 'div', 'hr', 'address', 'aside', 'article', 'footer', 'header', 'main', 'nav', 'section', 'br', 'em', 'strong', 'img'];
+const listTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'ol', 'ul', 'li', 'div', 'hr', 'address', 'aside', 'article', 'footer', 'header', 'nav', 'section', 'br', 'em', 'strong', 'img'];
 const datalistCreateElement = document.getElementById('list-create-element');
 listTags.forEach((tag) => {
   const option = document.createElement('option');
@@ -133,13 +133,15 @@ const addToPage = () => {
     }
     if (addIdInput.value) createTag.setAttribute('id', addIdInput.value);
     if (addClassInput.value) createTag.setAttribute('class', addClassInput.value);
-    addToAttributeList();
-    listAttributes.forEach((par) => {
-      const attribute = par.split('=');
-      const regex = /"/g;
-      createTag.setAttribute(attribute[0], attribute[1].replace(regex, ''));
-      console.log(createTag);
-    });
+    if (addAttribute.value !== '') {
+      addToAttributeList();
+      listAttributes.forEach((par) => {
+        const attribute = par.split('=');
+        const regex = /"/g;
+        createTag.setAttribute(attribute[0], attribute[1].replace(regex, ''));
+        console.log(createTag);
+      });
+    }
     createTag.innerText = addInnerText.value;
     const textCss = document.getElementById('text-css');
     createTag.style.cssText = textCss.value;

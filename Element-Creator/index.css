@@ -3,13 +3,17 @@ label, input {
   margin: 5px;
 }
 
-div {
+#main-forms {
   background-color: gainsboro;
 }
 
-h1 {
-  margin-top: 10px;
+#titulo {
+  display: block;
+  font-size: 2em;
   text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 10px;
 }
 
 input[type="text"], input[list], textarea {
@@ -26,7 +30,7 @@ textarea {
   resize: none;
 }
 
-span {
+#u {
   margin-left: 8px;
 }
 
