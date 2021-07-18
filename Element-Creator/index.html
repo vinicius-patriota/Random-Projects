@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>I used a page to create a page</title>
+  <link type="text/css" rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div>
+    <h1>Gerador de Elementos HTML</h1>
+    <form id="my-form" class="grid-container">
+      <label for="create-element" class="grid-item grid-item-1"><span>Selecione a Tag a ser criada:</span>
+        <input list="list-create-element" id="create-element" onchange="verifyCreateElement(this)"
+          placeholder="(necessario)">
+        <datalist id="list-create-element">
+        </datalist>
+      </label>
+      <label for="add-id" class="grid-item grid-item-2"><span>Adicione um id a Tag:</span>
+        <input id="add-id" type="text" placeholder="(opcional)" autocomplete="off">
+      </label>
+      <label for="add-class" class="grid-item grid-item-3"><span>Adicione uma classe (ou mais) a Tag:</span>
+        <input id="add-class" type="text" placeholder="(opcional)" autocomplete="off">
+      </label>
+      <label for="add-attribute" class="grid-item grid-item-4"><span>Adicione um (ou mais) atributos a Tag:</span>
+        <input id="add-attribute" type="text" placeholder="(opcional)" autocomplete="off">
+      </label>
+      <label for="add-inner-text" class="grid-item grid-item-5"><span>Adicione texto a Tag:</span>
+        <input id="add-inner-text" type="text" placeholder="(opcional)" autocomplete="off">
+      </label>
+      <label for="select-element" class="grid-item grid-item-6"><span>Selecione a Tag a ser anexada:</span>
+        <input list="list-select-element" id="select-element" onchange="verifySelectElement(this)" autocomplete="off"
+          placeholder="(necessario)">
+        <datalist id="list-select-element">
+          <option value="div">&lt;div&gt;</option>
+        </datalist>
+      </label>
+      <label for="select-id" class="grid-item grid-item-7"><span>Selecione o id da Tag a ser anexada:</span>
+        <input list="list-select-id" id="select-id" autocomplete="off" placeholder="(opcional)">
+        <datalist id="list-select-id">
+        </datalist>
+      </label>
+      <label for="select-class" class="grid-item grid-item-8"><span>Selecione a(s) classe(s) da Tag a ser
+          anexada:</span>
+        <input list="list-select-class" id="select-class" autocomplete="off" placeholder="(opcional)">
+        <datalist id="list-select-class">
+        </datalist>
+      </label>
+      <label for="select-index" class="grid-item grid-item-9"><span>Selecione o index da Tag a ser anexada:</span>
+        <input list="list-select-index" id="select-index" onchange="verifyIndexElement(this)" autocomplete="off"
+          placeholder="(necessario)">
+        <datalist id="list-select-index">
+          <option value="0"></option>
+        </datalist>
+      </label>
+      <div class="grid-item grid-item-10">
+        <label for="text-css">Adicionar estilo css ao elemento:</label>
+        <textarea id="text-css" rows="5" placeholder="(opcional)"></textarea>
+      </div>
+      <div class="grid-item grid-item-11">
+        <input id="btn-add" type="button" value="Adicionar" onclick="addToPage()"></input>
+      </div>
+    </form>
+  </div>
+  <div id="page-container"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
