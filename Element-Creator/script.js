@@ -33,7 +33,7 @@ const verifyIndexElement = (indexElementInput) => {
 // -- -- --
 
 // -- list-create-element --
-const listTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'ol', 'ul', 'li', 'div', 'hr', 'address', 'aside', 'article', 'footer', 'header', 'nav', 'section', 'br', 'em', 'strong', 'img'];
+const listTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span', 'ol', 'ul', 'li', 'div', 'hr', 'main', 'address', 'aside', 'article', 'footer', 'header', 'nav', 'section', 'br', 'em', 'strong', 'img', 'audio', 'video', 'a', ];
 const datalistCreateElement = document.getElementById('list-create-element');
 listTags.forEach((tag) => {
   const option = document.createElement('option');
@@ -65,7 +65,7 @@ const addToClassList = (className) => {
 }
 let listAttributes = [];
 const addToAttributeList = () => {
-  listAttributes = addAttribute.value.split(' ');
+  listAttributes = addAttribute.value.split('" ');
 }
 // -- -- --
 
@@ -112,14 +112,15 @@ const addToPage = () => {
     const inputSelectClass = document.getElementById("select-class");
     let appendTag;
     if (inputSelectId.value === '' && inputSelectClass.value === '') {
-      appendTag = document.querySelectorAll(selectElementInput.value);
+      appendTag = pageContainer.querySelectorAll(selectElementInput.value);
     } else if (inputSelectClass.value === '') {
-      appendTag = document.querySelectorAll(`${selectElementInput.value}#${inputSelectId.value}`);
+      appendTag = pageContainer.querySelectorAll(`${selectElementInput.value}#${inputSelectId.value}`);
     } else if (inputSelectId.value === '') {
-      appendTag = document.querySelectorAll(`${selectElementInput.value}.${inputSelectClass.value.replace(/\s/g, '.')}`);
+      appendTag = pageContainer.querySelectorAll(`${selectElementInput.value}.${inputSelectClass.value.replace(/\s/g, '.')}`);
     } else {
-      appendTag = document.querySelectorAll(`${selectElementInput.value}#${inputSelectId.value}.${inputSelectClass.value.replace(/\s/g, '.')}`);
+      appendTag = pageContainer.querySelectorAll(`${selectElementInput.value}#${inputSelectId.value}.${inputSelectClass.value.replace(/\s/g, '.')}`);
     }
+    console.log(appendTag)
     if (appendTag === null) {
       alert('Tag a ser anexada nao encontrada!');
       return;
@@ -137,6 +138,9 @@ const addToPage = () => {
       addToAttributeList();
       listAttributes.forEach((par) => {
         const attribute = par.split('=');
+        if (attribute.length === 1) {
+          alert('Atributo invalido! Inserir formato correto ( nome="valor" )!');
+        }
         const regex = /"/g;
         createTag.setAttribute(attribute[0], attribute[1].replace(regex, ''));
         console.log(createTag);
