@@ -1,6 +1,7 @@
 let str = '';
 let strToVerify = '';
 let lastButtonWasASymbol = false;
+let lastButtonWasAnEqual = false;
 
 const printToDisplay = (string) => {
   if (typeof string !== "string") throw Error('Argumento invalido: not a string');
@@ -8,11 +9,10 @@ const printToDisplay = (string) => {
 };
 
 const validateStringToDisplay = (string) => {
-  if (typeof string !== "string") throw Error('Argumento invalido: not a string');
   const inputDisplay = document.getElementById('input-display');
 
   if (string.length === 1) {
-    if (string === '*' || string === '/' || string === '+' || string === '0' || string === '.') {
+    if (string === '*' || string === '/' || string === '+' || string === '.') {
       inputDisplay.value = '';
       str = '';
       return;
@@ -91,9 +91,11 @@ const onNumberPressed = (object) => {
   if (!object.value) throw Error('Botao numerico retorna valor invalido!')
   lastButtonWasASymbol = false;
 
+  if (lastButtonWasAnEqual) str = '';
   strToVerify = str;
   strToVerify += object.value;
   printToDisplay(strToVerify);
+  lastButtonWasAnEqual = false;
 };
 
 const onSymbolPressed = (object) => {
@@ -103,6 +105,7 @@ const onSymbolPressed = (object) => {
   strToVerify = str;
   strToVerify += object.value;
   printToDisplay(strToVerify);
+  lastButtonWasAnEqual = false;
 };
 
 const onEqualsPressed = () => {
@@ -111,7 +114,6 @@ const onEqualsPressed = () => {
   if ((/ /).test(str[str.length - 1])) str = str.substring(0, str.length - 3);
 
   let listaStr = str.split(' ');
-  listaStr[0] = parseFloat(listaStr[0]);
 
   let listaMultDiv = [];
   if ((/[\*\/]/).test(str)) {
@@ -146,9 +148,10 @@ const onEqualsPressed = () => {
   };
 
   listaStr = listaStr.filter((value) => (value !== 0));
+  if (listaStr.length === 0) listaStr.push(0);
 
   let listaSumSub = [];
-  if ((/[\-\+]/).test(str)) {
+  if ((/[\-\+]/).test(str) && listaStr.length > 1) {
     for (let i = 0; i < listaStr.length; i += 1) {
       if (listaStr[i] === '+') {
         listaSumSub.push(parseFloat(listaStr[i - 1]) + parseFloat(listaStr[i + 1]));
@@ -172,6 +175,7 @@ const onEqualsPressed = () => {
   const inputDisplay = document.getElementById('input-display');
   inputDisplay.value = result;
   str = result;
+  lastButtonWasAnEqual = true;
 };
 
 module.exports = {
