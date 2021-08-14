@@ -1,5 +1,22 @@
 {
+  "name": "calculator",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "vite": "^2.4.2"
+  },
   "dependencies": {
     "jest": "^27.0.6"
+  },
+  "typeAcquisition": {
+    "include": [
+      "jest"
+    ]
   }
 }

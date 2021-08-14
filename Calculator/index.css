@@ -1,3 +1,90 @@
 body {
-  background-color: azure;
+  background-color: aliceblue;
 }
+
+main {
+  width: 350px;
+  height: 350px;
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+	margin: 100px auto;
+}
+
+#calculator {
+  display: grid;
+  grid-template-areas: 
+  "display display display display"
+  "div-7 div-8 div-9 div-div"
+  "div-4 div-5 div-6 div-mult"
+  "div-1 div-2 div-3 div-sub"
+  "div-0 div-dot div-sum div-equal";
+  width: 350px;
+  height: 350px;
+}
+
+#div-display {
+  grid-area: display;
+}
+#div-7 {
+  grid-area: div-7;
+}
+#div-8 {
+  grid-area: div-8;
+}
+#div-9 {
+  grid-area: div-9;
+}
+#div-div {
+  grid-area: div-div;
+}
+#div-4 {
+  grid-area: div-4;
+}
+#div-5{
+  grid-area: div-5;
+}
+#div-6{
+  grid-area: div-6;
+}
+#div-mult {
+  grid-area: div-mult;
+}
+#div-1 {
+  grid-area: div-1;
+}
+#div-2{
+  grid-area: div-2;
+}
+#div-3{
+  grid-area: div-3;
+}
+#div-sub {
+  grid-area: div-sub;
+}
+#div-0{
+  grid-area: div-0;
+}
+#div-dot{
+  grid-area: div-dot;
+}
+#div-sum{
+  grid-area: div-sum;
+}
+
+#input-display {
+  width: 350px;
+  text-align: right;
+  font-size: 25px;
+}
+
+input {
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+

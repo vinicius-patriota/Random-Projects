@@ -2,12 +2,68 @@
 <html>
 
 <head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
   <title>Calculator</title>
-  <link href="index.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
-  <script src="script.js"></script>
+  <main>
+    <form id="calculator">
+      <div id="div-display">
+        <input id="input-display" type="text" disabled>
+      </div>
+      <div id="div-7">
+        <input id="input-7" type="button" value="7" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-8">
+        <input id="input-8" type="button" value="8" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-9">
+        <input id="input-9" type="button" value="9" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-div">
+        <input id="input-div" type="button" value="/" onclick="onSymbolPressed(this)">
+      </div>
+      <div id="div-4">
+        <input id="input-4" type="button" value="4" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-5">
+        <input id="input-5" type="button" value="5" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-6">
+        <input id="input-6" type="button" value="6" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-mult">
+        <input id="input-mult" type="button" value="*" onclick="onSymbolPressed(this)">
+      </div>
+      <div id="div-1">
+        <input id="input-1" type="button" value="1" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-2">
+        <input id="input-2" type="button" value="2" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-3">
+        <input id="input-3" type="button" value="3" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-sub">
+        <input id="input-sub" type="button" value="-" onclick="onSymbolPressed(this)">
+      </div>
+      <div id=" div-0">
+        <input id="input-0" type="button" value="0" onclick="onNumberPressed(this)">
+      </div>
+      <div id="div-dot">
+        <input id="input-dot" type="button" value="." onclick="onNumberPressed(this)">
+      </div>
+      <div id=" div-sum">
+        <input id="input-sum" type="button" value="+" onclick="onSymbolPressed(this)">
+      </div>
+      <div id=" div-equal">
+        <input id="input-equal" type="button" value="=" onclick="onEqualsPressed()">
+      </div>
+    </form>
+  </main>
+  <script src="/script.js"></script>
 </body>
 
 </html>
